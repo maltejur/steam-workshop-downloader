@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Steam Workshop Downloader",
+  "description": "Download steam workshop files directly from your browser via steamworkshopdownloader.io",
+  "version": "0.1.8",
+  "icons": {
+    "96": "icons/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://steamcommunity.com/sharedfiles/filedetails/?id=*",
+        "*://steamcommunity.com/workshop/filedetails/?id=*"
+      ],
+      "js": ["userscript.js"]
+    },
+    {
+      "matches": [
+        "*://steamcommunity.com/sharedfiles/filedetails/?id=*",
+        "*://steamcommunity.com/workshop/filedetails/?id=*"
+      ],
+      "js": ["jquery.min.js"]
+    }
+  ],
+  "permissions": [
+    "*://steamcommunity.com/sharedfiles/filedetails/?id=*",
+    "*://steamcommunity.com/workshop/filedetails/?id=*"
+  ]
+}

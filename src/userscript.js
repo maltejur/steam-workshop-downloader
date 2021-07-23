@@ -9,6 +9,10 @@
 // @icon https://steamworkshopdownloader.io/logo.png
 // ==/UserScript==
 
+if (typeof jQuery !== "function" && typeof unsafeWindow !== "undefined") {
+  window.jQuery = unsafeWindow.jQuery;
+}
+
 const arrow =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEHklEQVRYR8WX/U9aVxjHH1QEX2O2mUXv5W4xVhHkVdDq1rk2KfWFJSbdzLa/ZO+/tNvav6BLuiyZ+6X7wUXFJV2XtNsPa6uiKIoIiLQCviUkRgP3KupZHghNq3B52izZ+YWE+z3f7+c85zkn9yrgfx4Kan4wtBqVJImn6NVqdazlXLOGoiUDLHgX2VuCACpVOQDgNHbKP/vfweEhPH26DiajgeRNEmHS/IKXtbacA7VaLbswSZIgEAyB2WQkeZNEmOiZX2Da1hYSwEogCBazieRNEiHAnGeeaVtboaKieAX8KwGwWswkb5IIAWbnPKxNiwAVslsgShL4/SvQYbWQvEkiTHTPzjFdm7Y4gCjCsn8FbB1WkjdJhAAz7lmm17WRAHzLfrDbOkjeJBECTM+4WbteRwJY8i1Dp91G8iaJMgDTM0zfrofKIj2QSong8/mgs9NO8iaJEGBqapq1I0BlpWwTpkQRlhaXoKurk+RNEmHi46lpZqAApFKwuOSD8/81wKNHj5nRaChegVQKvN5F6O4+T1ocSYQV+OfhQ2Y0GKGysgIUivzTGGOAPeBd9MI7PT0kb5IIAR789TezmE2kU+CZX4CL7/eSvEkiBLh3709msViKXsWiKIHH4wGH4zLJmyRCANfk78zWYQWVSiV7Cg4ODvDWhA+cgyTvMyKXa3IrnU6/mS/FbreBUqmU7YHDdBrcM+68kEqlUnI6B99WKBTbOcEZgNGxMfGN115X81xjRpNtOAXgD74LHB0dATZboYGA+E6QlbBn2lh8A7a2tmBwoN9UXV3tLQiQSCQu37//wNXY2KASBAHS6fQzE4Q5OTmRBSgtLX1Bj0Dr6+sQiTyBnp7ua01NTd88D593nxKJhOPu3T8mOI5TaTQ84L5icKHjd7oaWKGSkpJMv0SjMViLROC9C+9ea25ufiE8U+FCpUQI1+TkBNeYhRBFEY6Pj2UbMPcQw/HKzoSvRaC398J1rVb7db7Jsp26vb19ZWLCNc7znIrneUgmk0UhcAuqqqogFotBOLwGly5dvK7T6fKGy1YgR4sQo6O/jfM8r+K4RlmIXHg8vgHhcBgcDse3er3uK7mykc4qQty58+uERsOXcxwH+/v7ZyqB4TU1NRCPxyG0GoaB/r7vDAbDl8X2jASAJjs7O30jI7+MazSacqzE3t5e5kjiKCsrg9raWsCVr66GwOl0fm8ymb4oFk7agudNNjZ2+n4e+WlcyEBwsLu7m3lcV1eXXXkoBENDQzfMZvPnlPCXBsAJm5ub/bdv/zgmCEKmEjhw5YFgED768OoNq9VKDn8lgBzErVs/jAmCBr/TIBAIwvDw8E273fYZdeUFb0KqQTQaHUAIURSVH3/6yc0uu/2lw1+5AjnIZDLZkEqlGurr6+eo4Kd1/wLmE60w0vLGGQAAAABJRU5ErkJggg==";
 
@@ -156,6 +160,7 @@ function doesButtonExist() {
     // Only neccesary when ran as a userscript: keep retrying until jQuery is available from the page headers.
     if (typeof jQuery === "undefined") {
       setTimeout(load, 50);
+      return;
     }
 
     if (getPageType() == null) {

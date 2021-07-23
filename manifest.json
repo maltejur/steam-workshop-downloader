@@ -12,16 +12,10 @@
         "*://steamcommunity.com/sharedfiles/filedetails/?id=*",
         "*://steamcommunity.com/workshop/filedetails/?id=*"
       ],
-      "js": ["userscript.js"]
-    },
-    {
-      "matches": [
-        "*://steamcommunity.com/sharedfiles/filedetails/?id=*",
-        "*://steamcommunity.com/workshop/filedetails/?id=*"
-      ],
-      "js": ["jquery.min.js"]
+      "js": ["src/content_script.js"]
     }
   ],
+  "web_accessible_resources": ["src/userscript.js", "src/jquery.min.js"],
   "permissions": [
     "*://steamcommunity.com/sharedfiles/filedetails/?id=*",
     "*://steamcommunity.com/workshop/filedetails/?id=*"

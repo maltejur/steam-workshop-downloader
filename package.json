@@ -2,6 +2,7 @@
   "name": "steam-workshop-downloader-ext",
   "description": "Download steam workshop files directly from your browser via steamworkshopdownloader.io",
   "version": "0.1.8",
+  "type": "module",
   "scripts": {
     "start": "web-ext run --verbose",
     "build": "web-ext build --overwrite-dest",
